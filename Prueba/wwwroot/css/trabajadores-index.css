@@ -1,0 +1,574 @@
+﻿/* Estilos formales para el módulo de trabajadores */
+
+/* Variables CSS para mantener consistencia */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --light-bg: #f8f9fa;
+    --dark-text: #2c3e50;
+    --medium-text: #5d6d7e;
+    --light-text: #85929e;
+    --border-color: #bdc3c7;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --border-radius: 4px;
+    --transition: all 0.3s ease;
+}
+
+/* Estilos generales */
+.container-fluid {
+    padding: 30px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    background: white;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+    .card-header h3 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.25rem;
+        letter-spacing: 0.5px;
+    }
+
+        .card-header h3 i {
+            margin-right: 10px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+/* Estilos para la sección de filtros */
+.filter-section {
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+}
+
+    .filter-section .form-label {
+        font-weight: 600;
+        color: var(--dark-text);
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+/* Estilos para la tabla */
+.table-responsive {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.table {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+    .table thead th {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 15px 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.8px;
+        vertical-align: middle;
+    }
+
+    .table tbody td {
+        padding: 12px;
+        vertical-align: middle;
+        border-top: 1px solid var(--border-color);
+        color: var(--dark-text);
+    }
+
+    .table tbody tr {
+        transition: var(--transition);
+    }
+
+        .table tbody tr:hover {
+            background-color: #f1f3f4;
+            transform: none;
+        }
+
+        /* Colores profesionales para filas según el sexo */
+        .table tbody tr.table-primary {
+            background-color: #f8f9ff !important;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .table tbody tr.table-warning {
+            background-color: #fff9f0 !important;
+            border-left: 3px solid var(--warning-color);
+        }
+
+        .table tbody tr.table-primary:hover {
+            background-color: #eff1ff !important;
+        }
+
+        .table tbody tr.table-warning:hover {
+            background-color: #fff4e6 !important;
+        }
+
+/* Estilos para badges más profesionales */
+.badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+    .badge.bg-secondary {
+        background-color: var(--medium-text) !important;
+        color: white !important;
+    }
+
+    .badge.bg-primary {
+        background-color: var(--accent-color) !important;
+        color: white !important;
+    }
+
+    .badge.bg-warning {
+        background-color: var(--warning-color) !important;
+        color: white !important;
+    }
+
+/* Estilos para botones de acción más conservadores */
+.action-buttons {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+    .action-buttons .btn {
+        padding: 6px 12px;
+        border-radius: var(--border-radius);
+        border: none;
+        transition: var(--transition);
+        font-size: 0.8rem;
+        min-width: 36px;
+    }
+
+        .action-buttons .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-hover);
+        }
+
+    .action-buttons .btn-info {
+        background-color: var(--accent-color);
+        color: white;
+    }
+
+        .action-buttons .btn-info:hover {
+            background-color: #2980b9;
+        }
+
+    .action-buttons .btn-warning {
+        background-color: var(--warning-color);
+        color: white;
+    }
+
+        .action-buttons .btn-warning:hover {
+            background-color: #e67e22;
+        }
+
+    .action-buttons .btn-danger {
+        background-color: var(--danger-color);
+        color: white;
+    }
+
+        .action-buttons .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+/* Mensaje cuando no hay datos */
+.no-data-message {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--medium-text);
+}
+
+    .no-data-message i {
+        opacity: 0.6;
+        margin-bottom: 20px;
+        color: var(--light-text);
+    }
+
+    .no-data-message p {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+/* Estilos para modales más profesionales */
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    padding: 20px 25px;
+}
+
+    .modal-header .btn-close {
+        filter: brightness(0) invert(1);
+        opacity: 0.8;
+    }
+
+        .modal-header .btn-close:hover {
+            opacity: 1;
+        }
+
+.modal-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+    .modal-title i {
+        margin-right: 8px;
+    }
+
+.modal-body {
+    padding: 25px;
+    background-color: white;
+}
+
+.modal-footer {
+    padding: 20px 25px;
+    background-color: var(--light-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Estilos para formularios */
+.form-label {
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 10px 15px;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    color: var(--dark-text);
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+    }
+
+    .form-control::placeholder {
+        color: var(--light-text);
+        font-style: italic;
+    }
+
+/* Estilos para mensajes de validación */
+.text-danger {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block;
+    color: var(--danger-color);
+}
+
+/* Estilos para botones principales */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+}
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-hover);
+    }
+
+.btn-secondary {
+    background-color: var(--medium-text);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: var(--transition);
+    color: white;
+    font-size: 0.9rem;
+}
+
+    .btn-secondary:hover {
+        background-color: #4a5568;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-hover);
+    }
+
+/* Estilos para spinners de carga */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 15px;
+    }
+
+    .card-header {
+        padding: 15px 20px;
+    }
+
+        .card-header h3 {
+            font-size: 1.1rem;
+        }
+
+    .filter-section {
+        padding: 15px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+        .action-buttons .btn {
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+    .table-responsive {
+        font-size: 0.8rem;
+    }
+
+    .modal-dialog {
+        margin: 15px;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .table thead {
+        display: none;
+    }
+
+    .table tbody td {
+        display: block;
+        text-align: right;
+        border: none;
+        padding: 10px 15px;
+        position: relative;
+        border-bottom: 1px solid #f1f3f4;
+    }
+
+        .table tbody td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 15px;
+            width: 45%;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 0.8rem;
+        }
+
+    .table tbody tr {
+        border: 1px solid var(--border-color);
+        margin-bottom: 15px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+    }
+}
+
+/* Animaciones suaves */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Estilos para tooltips */
+.tooltip {
+    font-size: 0.8rem;
+}
+
+/* Estilos para el contador de trabajadores */
+.text-muted {
+    font-size: 0.85rem;
+    color: var(--medium-text) !important;
+}
+
+    .text-muted i {
+        margin-right: 6px;
+    }
+
+/* Estilos para estados de loading */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Estilos para mensajes de éxito/error */
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.alert-success {
+    background-color: #d5f4e6;
+    color: #0f5132;
+    border-left: 4px solid var(--success-color);
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid var(--danger-color);
+}
+
+/* Estilos para el modal de detalles */
+.form-control-plaintext {
+    padding: 8px 0;
+    margin-bottom: 0;
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    color: var(--dark-text);
+}
+
+.fw-bold {
+    font-weight: 600 !important;
+    color: var(--dark-text);
+}
+
+/* Mejoras adicionales */
+.btn i {
+    margin-right: 6px;
+}
+
+.btn:last-child i {
+    margin-right: 0;
+}
+
+/* Estilos para campos obligatorios */
+.form-label.required::after {
+    content: " *";
+    color: var(--danger-color);
+    font-weight: bold;
+}
+
+/* Estilos para focus visible */
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Estilos para el navbar más profesional */
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+    .navbar-brand i {
+        margin-right: 8px;
+    }
+
+.nav-link {
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+    .nav-link:hover {
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+/* Estilos para texto fuerte */
+strong {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+/* Espaciado mejorado */
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+/* Estilos para separadores */
+hr {
+    border-color: var(--border-color);
+    opacity: 0.5;
+}
+
+/* Estilos para iconos */
+.fas, .far, .fab {
+    vertical-align: middle;
+}
+
+/* Hover effects más sutiles */
+.table tbody tr:hover strong {
+    color: var(--accent-color);
+}
+
+/* Estilos para contenido de carga */
+.spinner-border {
+    color: var(--accent-color);
+}
+
+/* Mejoras en contraste */
+.text-muted {
+    color: var(--medium-text) !important;
+}
+
+/* Estilos para contenido destacado */
+.highlight {
+    background-color: #fff3cd;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-weight: 500;
+}

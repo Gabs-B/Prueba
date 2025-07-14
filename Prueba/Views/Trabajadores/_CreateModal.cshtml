@@ -1,0 +1,97 @@
+﻿@model Prueba.Models.TrabajadorCreateViewModel
+
+<div class="modal-header">
+    <h5 class="modal-title">
+        <i class="fas fa-plus"></i> Nuevo Trabajador
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+
+<form id="createForm" asp-action="Create" method="post" onsubmit="return submitForm(event, this)">
+    @Html.AntiForgeryToken()
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="TipoDocumento" class="form-label">Tipo de Documento</label>
+                    <select asp-for="TipoDocumento" class="form-select">
+                        <option value="">Seleccione...</option>
+                        <option value="DNI">DNI</option>
+                        <option value="CE">Carnet de Extranjería</option>
+                        <option value="PAS">Pasaporte</option>
+                    </select>
+                    <span asp-validation-for="TipoDocumento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="NumeroDocumento" class="form-label">Número de Documento</label>
+                    <input asp-for="NumeroDocumento" class="form-control" placeholder="Ingrese el número de documento" />
+                    <span asp-validation-for="NumeroDocumento" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Nombres" class="form-label">Nombres *</label>
+            <input asp-for="Nombres" class="form-control" placeholder="Ingrese los nombres completos" />
+            <span asp-validation-for="Nombres" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Sexo" class="form-label">Sexo</label>
+            <select asp-for="Sexo" class="form-select">
+                <option value="">Seleccione...</option>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+            </select>
+            <span asp-validation-for="Sexo" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label asp-for="IdDepartamento" class="form-label">Departamento</label>
+                    <select asp-for="IdDepartamento" class="form-select" asp-items="ViewBag.Departamentos" onchange="cargarProvincias(this.value)">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="IdDepartamento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label asp-for="IdProvincia" class="form-label">Provincia</label>
+                    <select asp-for="IdProvincia" class="form-select" asp-items="ViewBag.Provincias" onchange="cargarDistritos(this.value)">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="IdProvincia" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label asp-for="IdDistrito" class="form-label">Distrito</label>
+                    <select asp-for="IdDistrito" class="form-select" asp-items="ViewBag.Distritos">
+                        <option value="">Seleccione...</option>
+                    </select>
+                    <span asp-validation-for="IdDistrito" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <i class="fas fa-times"></i> Cancelar
+        </button>
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> Guardar
+        </button>
+    </div>
+</form>
+
+<script>
+    // Validación del lado del cliente
+    jQuery(document).ready(function ($) {
+        $.validator.unobtrusive.parse('#createForm');
+    });
+</script>
